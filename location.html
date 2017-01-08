@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MasterStroke</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="scripts/location.js"></script>
+  </head>
+  <body ng-app="masterstroke" ng-controller = "map">
+    <div class="container-fluid" style="background:#17323e;" ng-style="{'min-height':height + 'px'}" >
+      <div class="section-heading">
+        <p style="text-align:center;font-size:32px; color:white; padding-top:40px; font-family: Lato,sans-serif;">Search Your Dream Home!.</p>
+      </div>
+      <hr>
+      <div class="col-sm-6">
+        <div class="panel-info">
+          <div class="panel-heading">Primary Details</div>
+          <div class="panel-body">
+            <label for = "area" style="color:white;">Area:</label>
+            <input type="text" class="form-control" ng-model = "area"><br>
+            <label for = "city" style="color:white;">City:</label>
+            <input type="text" class="form-control" ng-model = "city"></ng-model><br />
+            <label for = "city" style="color:white;">Country:</label>
+            <input type="text" class="form-control" ng-model = "country"></ng-model>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="panel-info">
+          <div class="panel-heading">Secondary Details</div>
+          <div class="panel-body">
+            <label for = "school" style="color:white;padding-right:15px;">School near by:
+            <input type="radio" name="school" value="schoollocation" ng-model="school" ng-checked = "true" style="cursor:pointer;"/>Yes
+            <input type="radio" name="school" value="schoollocation" ng-model="school" style="cursor:pointer;"/>No</label>
+            <br /><br /><label for ="Garden" style="color:white;">Garden near by:
+            <input type="radio" name="garden" value="gardenlocation" ng-model="garden" ng-checked = "true" style="cursor:pointer;"/>Yes
+            <input type="radio" name = "garden" value = "gardenlocation" ng-model = "garden" style="cursor:pointer;"/>No</label>
+            <br /><br /><label for ="Market" style="color:white;">Market near by:
+            <input type="radio" name="market" value="marketlocation" ng-model="market" ng-checked = "true" style="cursor:pointer;"/>Yes
+            <input type="radio" name = "market" value = "marketlocation" ng-model = "market" style="cursor:pointer;"/>No</label>
+          </div>
+        </div>
+        <h2><a style="color:white;text-decoration:none;text-align:center;cursor:pointer;" ng-click="search()">Search</a></h2>
+      </div>
+    </div>
+
+  </body>
+</html>

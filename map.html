@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>MasterStroke</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+        var temp = getCookie("location");
+        console.log(temp);
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+          function initMap() {
+            var geocoder =  new google.maps.Geocoder();
+            geocoder.geocode( { 'address': temp}, function(results, status) {
+              console.log(results);
+              console.log(status);
+               if (status == google.maps.GeocoderStatus.OK) {
+                 var lat = results[0].geometry.location.lat();
+                 var lng = results[0].geometry.location.lng();
+                   map = new google.maps.Map(document.getElementById('map'), {
+                   zoom: 7,
+                   center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude);  // Center the map on Chicago, USA.
+                 });
+               } else {
+                 alert("something went wrong " + status);
+               }
+          });
+        }
+      //     poly = new google.maps.Polyline({
+      //       strokeColor: '#000000',
+      //       strokeOpacity: 1.0,
+      //       strokeWeight: 3
+      //     });
+      //     poly.setMap(map);
+      //
+      //   // Add a listener for the click event
+      //   map.addListener('click', addLatLng);
+      // }
+      //
+      // // Handles click events on a map, and adds a new point to the Polyline.
+      // function addLatLng(event) {
+      //   var path = poly.getPath();
+      //
+      //   // Because path is an MVCArray, we can simply append a new coordinate
+      //   // and it will automatically appear.
+      //   path.push(event.latLng);
+      //
+      //   // Add a new marker at the new plotted point on the polyline.
+      //   var marker = new google.maps.Marker({
+      //     position: event.latLng,
+      //     title: '#' + path.getLength(),
+      //     map: map
+      //   });
+      //}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTJTmqyGupTka1CUy6ayDBUd2_txGhxBU&callback=initMap">
+    </script>
+  </body>
+</html>

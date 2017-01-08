@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MasterStroke</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="scripts/jquery.onepage-scroll.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
+  <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/base.css">
+  <script type="text/javascript" src="scripts/base.js"></script>
+  <style>
+    body.disabled-onepage-scroll .onepage-wrapper  section {
+      min-height: 100%;
+      height: auto;
+    }
+
+    body.disabled-onepage-scroll .main section .page_container, body.disabled-onepage-scroll .main section.page3 .page_container  {
+      padding: 20px;
+      margin-top: 150px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body.disabled-onepage-scroll  section .page_container h1{
+      text-align: center;
+      font-size: 50px;
+    }
+    body.disabled-onepage-scroll section .page_container h2, body.disabled-onepage-scroll section .page_container .credit, body.disabled-onepage-scroll section .page_container .btns{
+      text-align: center;
+      width: 100%;
+    }
+
+    body.disabled-onepage-scroll .main section.page1 > img {
+      position: absolute;
+      width: 80%;
+      left: 10%;
+    }
+
+    body.disabled-onepage-scroll .main section > img {
+      position: relative;
+      max-width: 80%;
+      bottom: 0;
+    }
+    body.disabled-onepage-scroll code {
+      width: 95%;
+      margin: 0 auto 25px;
+      float: none;
+      overflow: hidden;
+    }
+
+    body.disabled-onepage-scroll .main section.page3 .page_container {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      right: 0;
+    }
+	</style>
+	<script>
+	  $(document).ready(function(){
+      $(".main").onepage_scroll({
+        sectionContainer: "section",
+        responsiveFallback: 600,
+        loop: false
+      });
+		});
+	</script>
+</head>
+
+<body ng-app="masterstroke" ng-controller = "base">
+  <div class="wrapper">
+  <div class="main">
+
+  <section id="homepage" style="background-image:url(images/home1.jpg);background-size:cover;padding:0;margin:0;" ng-style="{'min-height':height + 'px'}" >
+        <div style="width:25%;float:left;background-color:rgba(28, 28, 27, 0.7);" ng-style="{'min-height':height + 'px'}">
+            <h1><a href="#homepage"style="color:white;float:left;padding-left:50px;text-decoration:none;">MasterStroke!</a></h1>
+            <div class="container-fluid" style="padding:20px;">
+              <p style="font-size:28px;padding:10px;color:rgb(200,200,200);"><br />
+                  Find Your Dream Home!!
+              </p>
+            </div>
+
+        </div>
+  </section>
+
+  <section id="gallery" ng-style="{'min-height':height + 'px'}" href="#gallery">
+      <div class="container-fluid">
+         <div class="section-heading">
+           <p style="text-align:center;font-size:32px; color:#17232e; padding-top:40px; font-family: Lato,sans-serif;">MasterStroke live!</p><p>Let friends and family track your journey in real time.</p>
+         </div><br>
+         <div id="carousel" class="carousel slide" data-ride="carousel">
+           <ol class="carousel-indicators">
+             <li data-target="#carousel" data-slide-to="0" class="activge"></li>
+             <li data-target="#carousel" data-slide-to="1"></li>
+             <li data-target="#carousel" data-slide-to="2"></li>
+             <li data-target="#carousel" data-slide-to="3"></li>
+           </ol>
+
+           <div class="carousel-inner" role="listbox">
+             <div class="item active" ><img src="images/home3.jpg" alt="Chania"></div>
+             <div class="item"><img src="images/garden.jpg" alt="Chania"></div>
+             <div class="item"><img src="images/school.jpg" alt="Chania" ></div>
+             <div class="item"><img src="images/market.jpg" alt="Chania" ></div>
+           </div>
+         </div>
+       </div>
+  </section>
+
+  <section id = "info" ng-style="{'min-height':height + 'px'}" style="background-image:url(images/home2.jpg);background-size:cover;" >
+    <div style="width:45%; float:right;" ng-style="{'min-height':height + 'px'}">
+      <div class="panel panel-info">
+        <div class="panel-heading" style="font-size:28px;">
+          Login
+        </div>
+        <div class="panel-body">
+          <div class="container-fluid">
+              <label for=username>username/email *</label>
+              <input type="text" class="form-control" ng-model="username" /><br />
+              <label for=password>password *</label>
+              <input type="password" class="form-control" ng-model="password" /><br />
+          </div>
+        </div>
+       <button class="btn btn-lg" type="button" ng-click=login() style="margin-bottom:20px;">Login</button>
+        </div>
+        <a style="font-size:36px;color:white;" href="\location.html">TRY YOURSELF!!</a>
+      </div>
+    </div>
+  </section>
+
+        <section id = "contact" class="contact bg-primary" ng-style="{'min-height': height + 'px'}" href="#contact">
+             <div class="container-fluid" style="background-color:#17232e;">
+                   <div class="section-heading">
+                      <p style="text-align:center;font-size:32px; color:white; font-family: Lato,sans-serif;">CONTACT US</p>
+                   </div><br />
+                   <div class="container-fluid">
+                         <div class="col-sm-4" id="contactInfo">
+                              <div class="container-fluid" id="location" style="text-align:left;">
+                                  <a href="https://www.google.co.in/maps/place/Indian+Institute+of+Technology+Madras/" target="_blank" style="text-decoration:None;"><span style="font-size:16px;"><i class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:red;font-size:16px;"></i>Indian Institute Of Technology(IIT) Madras</span></a>
+                                  <p  style="font-size:16px;color:white;padding-left:20px;">
+                                    Beside Adyar Cancer Institute,<br />Opposite to C.L.R.I,<br /> Sardar Patel Road, Adyar, <br />Chennai, Tamil Nadu 600036<br />
+                                  </p>
+                              </div><br />
+                              <div class="container-fluid" id="website" style="text-align:left;">
+                                <a style="text-decoration:None;" href="https://www.iitm.ac.in" target="_blank"> <span style="font-size:16px;"><i class="glyphicon glyphicon-globe" aria-hidden="true" style="color:blue;font-size:16px;padding-right:20px;"></i>www.iitm.ac.in</span></a>
+                              </div><br />
+                              <div class="container-fluid" id="call" style="text-align:left;">
+                                <a style="text-decoration:None;"> <span style="font-size:16px;color:white;cursor:pointer;"><i class="fa fa-phone" aria-hidden="true" style="color:blue;font-size:16x;padding-right:20px;"></i>9999999999</span></a>
+                              </div>
+                         </div><br />
+
+                         <div class="col-sm-1"></div>
+
+                         <div class="col-sm-4" style="padding:0;margin:0 auto;">
+                             	<form>
+                                <div class="form-group" id="contact_details">
+                                    <label for="name" >NAME*</label>
+                                    <input type="text" class="form-control" />
+
+                                    <label for="name"> EMAIL*</label>
+                            	  	  <input type="text" class="form-control" />
+
+                                    <label for="name"> PHONE NUMBER*</label>
+                                    <input type="text" class="form-control" />
+
+                                    <label for="name"> MESSAGE*</label>
+                            	       <textarea class="form-control" rows="5" id="comment" style="font-size:20px;height:160px;"></textarea><br/>
+                                     <button type="button" class="btn btn-warning" style="float:left;">SEND</button>
+                                  </div>
+                              </form>
+                         </div>
+                   </div><br />
+              </div>
+
+
+              <footer>
+                <ul class="list-inline list-social">
+                    <li class="social-twitter">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="social-facebook">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="social-google-plus">
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                </ul>
+                    <div class="container" style="text-align:center;color:#17232e;">
+                        <p>&copy;2017 MasterStroke. All Rights Reserved.</p>
+                    </div>
+              </footer>
+
+        </section>
+
+      </div>
+    </div>
+  </body>
+ </html>
